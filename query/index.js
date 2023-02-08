@@ -57,5 +57,4 @@ app.listen(4002, async () => {
     } catch (error) {
         console.log(error.message);
     }
-
 });
