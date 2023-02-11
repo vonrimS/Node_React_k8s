@@ -8,7 +8,10 @@ export default () => {
     const onSubmit = async (event) => {
         event.preventDefault();
         // await axios.post('http://localhost:4000/posts', {
-        await axios.post('http://posts.com/posts', {
+        // await axios.post('http://posts.com/posts', {
+
+        // as Ingeress cannot use REST verbs we have to rename this endpoint
+        await axios.post('http://posts.com/posts/create', {
             title
         });
         setTitle('');
