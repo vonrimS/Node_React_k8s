@@ -11,7 +11,8 @@ export default () => {
         // const res = await axios.get('http://localhost:4000/posts');
 
         // redirect to query service
-        const res = await axios.get('http://localhost:4002/posts');
+        // const res = await axios.get('http://localhost:4002/posts');
+        const res = await axios.get('http://posts.com/posts');
         // console.log(res.data);
         setPosts(res.data);
     };
