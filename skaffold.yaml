@@ -1,0 +1,60 @@
+apiVersion: skaffold/v3alpha1
+kind: Config
+build:
+  artifacts:
+    - image: vonrims/client
+      context: client
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+        - src: 'src/**/*.js'
+          dest: .
+    - image: vonrims/comments
+      context: comments
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+        - src: '*.js'
+          dest: .
+    - image: vonrims/event-bus
+      context: event-bus
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+        - src: '*.js'
+          dest: .
+    - image: vonrims/moderation
+      context: moderation
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+        - src: '*.js'
+          dest: .
+    - image: vonrims/posts
+      context: posts
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+        - src: '*.js'
+          dest: .
+    - image: vonrims/query
+      context: query
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+        - src: '*.js'
+          dest: .
+  local:
+    push: false
+
+manifests:
+  rawYaml:
+  - ./infra/k8s/*
+deploy:
+  kubectl: {}
